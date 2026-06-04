@@ -1,0 +1,168 @@
+<!-- templates/login.html -->
+
+<style>
+    input-box input::placeholder{
+        color: lightgrey;
+    }
+</style>
+{% extends "base.html" %}
+
+{% block title %}Login - AskHR{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card" style="box-shadow: rgba(151, 142, 142, 0.25) 0px 54px 55px, rgba(167, 158, 158, 0.12) 0px -12px 30px, rgba(214, 207, 207, 0.12) 0px 4px 6px, rgba(187, 184, 184, 0.17) 0px 12px 13px, rgba(175, 167, 167, 0.09) 0px -3px 5px;">
+            <div class="card-body p-4">
+                <div class="text-center mb-4">
+                    <div class="mb-3">
+                        <i class="fas fa-robot fa-4x text-primary"></i>
+                    </div>
+                    <h2 class="card-title" style="color:aliceblue">AskHR</h2>
+                </div>
+
+                <form method="POST" id="loginForm">
+                    <div class="mb-3" style="color: aliceblue;">
+                        <label for="emp_id" class="form-label">
+                            <i class="fas fa-id-badge me-2"></i>Employee ID
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-control form-control-lg" 
+                            id="emp_id" 
+                            name="emp_id" 
+                            placeholder="Enter your Employee ID " 
+                            required
+                            autocomplete="username"
+                            style="background: transparent; color: aliceblue; border-radius: 30px; border-color: rgba(169, 181, 181, 0.35); border-width: 3px;"
+                            
+                        >
+                    </div>
+
+                    <div class="mb-3" style="color: aliceblue;">
+                        <label for="emp_name" class="form-label">
+                            <i class="fas fa-user me-2"></i>Employee Name
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-control form-control-lg" 
+                            id="emp_name" 
+                            name="emp_name" 
+                            placeholder="Enter your full name" 
+                            required
+                            autocomplete="name"
+                            style="background: transparent; color: aliceblue; border-radius: 30px; border-color: rgba(169, 181, 181, 0.35); border-width: 3px;"
+                        >
+                    </div>
+                    <div class="mb-3" style="color: aliceblue;">
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock me-2"></i>Password
+                        </label>
+                        <input
+                            type="password"
+                            class="form-control form-control-lg"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                            style="background: transparent; color: aliceblue;
+                                border-radius: 30px;
+                                border-color: rgba(169,181,181,0.35);
+                                border-width: 3px;"
+                        >
+                    </div>
+
+                    <div class="d-grid" style="color: rgb(132, 161, 198);">
+                        <button type="submit" class="btn btn-primary btn-lg" id="loginBtn" style="color: black;">
+                            Login
+                        </button>
+                    </div>
+                </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    const button = document.getElementById('loginBtn');
+    const empId = document.getElementById('emp_id').value.trim();
+    const empName = document.getElementById('emp_name').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    
+    if (!empId || !empName) {
+        e.preventDefault();
+        alert('Please enter both Employee ID and Employee Name');
+        return;
+    }
+    
+    // Basic validation
+    if (empId.length < 3) {
+        e.preventDefault();
+        alert('Employee ID must be at least 3 characters long');
+        return;
+    }
+    
+    if (empName.length < 2) {
+        e.preventDefault();
+        alert('Please enter a valid employee name');
+        return;
+    }
+    
+
+    if (!password) {
+        e.preventDefault();
+        alert('Please enter password');
+        return;
+    }
+
+    // Show loading state
+    button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Verifying credentials...';
+    button.disabled = true;
+    
+    // Re-enable button after a delay in case of validation errors
+    setTimeout(() => {
+        button.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Login';
+        button.disabled = false;
+    }, 5000);
+});
+
+// Focus on first input field when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('emp_id').focus();
+});
+
+// Handle Enter key press to move between fields
+document.getElementById('emp_id').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        document.getElementById('emp_name').focus();
+    }
+});
+
+document.getElementById('emp_name').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        document.getElementById('loginForm').submit();
+    }
+});
+
+// Auto-capitalize name field
+document.getElementById('emp_name').addEventListener('input', function(e) {
+    // Convert to proper case (first letter of each word capitalized)
+    let value = e.target.value;
+    e.target.value = value.toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
+});
+
+// Validate Employee ID format (optional - adjust pattern as needed)
+document.getElementById('emp_id').addEventListener('input', function(e) {
+    let value = e.target.value.toUpperCase();
+    e.target.value = value;
+});
+</script>
+{% endblock %}

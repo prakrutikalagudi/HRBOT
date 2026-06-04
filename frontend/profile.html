@@ -1,0 +1,71 @@
+<!-- templates/profile.html -->
+{% extends "base.html" %}
+
+{% block title %}Profile - HR Bot{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center" >
+    <div class="col-md-10 col-lg-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-user-circle me-2"></i>Employee Profile
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- Personal Information -->
+                    <div class="col-md-6" style="color:aliceblue">
+                        <h5 class="text-primary mb-3">
+                            <i class="fas fa-user me-2"></i>Personal Information
+                        </h5>
+                        <div class="row mb-3">
+                            <div class="col-sm-4"><strong>Name:</strong></div>
+                            <div class="col-sm-8">{{ employee.Name or 'N/A' }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4"><strong>Employee ID:</strong></div>
+                            <div class="col-sm-8">{{ employee.Employee_Id or 'N/A' }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4"><strong>Email:</strong></div>
+                            <div class="col-sm-8">{{ employee.Email or 'N/A' }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4"><strong>Position:</strong></div>
+                            <div class="col-sm-8">{{ employee.Position or 'N/A' }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4"><strong>Department:</strong></div>
+                            <div class="col-sm-8">{{ employee.Department or 'N/A' }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4"><strong>Joining Date:</strong></div>
+                            <div class="col-sm-8">{{ employee.Joining_Date or 'N/A' }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4"><strong>Status:</strong></div>
+                            <div class="col-sm-8">
+                                {{ employee.Emp_Status or 'Active' }}
+                            </div>
+                        </div>
+                    </div>
+                
+                <!-- Quick Actions -->
+                <div class="mt-4 pt-4 border-top">
+                    <h5 class="text-info mb-3">
+                        
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <a href="{{ url_for('chat') }}" class="btn btn-outline-secondary w-100">
+                                <i class="fas fa-comments me-2"></i>Chat with AskHR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
