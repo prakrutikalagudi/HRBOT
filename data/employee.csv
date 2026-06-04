@@ -1,0 +1,21 @@
+Employee_Id,Name,Password,Email,,,Position,,Paid_leave,Sick_Leave,Salary,Emp_Status,Remaining_PL,Remaining_SL
+101,Aarav Mehta,Aarav123,aarav.mehta@company.com,,,Software Engineer,,12,8,60000,Active,7,4
+102,Ananya Sharma,Ananya123,ananya.sharma@company.com,,,HR Manager,,15,10,55000,Active,9,6
+103,Rohan Verma,Rohan123,rohan.verma@company.com,,,Accountant,,10,7,42000,Active,6,5
+104,Priya Nair,Priya123,priya.nair@company.com,,,Data Analyst,,12,8,48000,Probation,11,8
+105,Karan Patel,Karan123,karan.patel@company.com,,,Marketing Exec.,,15,10,50000,Active,10,7
+106,Neha Gupta,Neha123,neha.gupta@company.com,,,Recruiter,,12,8,38000,Active,8,6
+107,Vivek Iyer,Vivek123,vivek.iyer@company.com,,,System Admin,,15,10,45000,Active,5,3
+108,Sneha Reddy,Sneha123,sneha.reddy@company.com,,,Project Manager,,20,12,75000,Active,15,10
+109,Manish Kumar,Manish123,manish.kumar@company.com,,,Sales Executive,,12,8,40000,Active,9,6
+110,Ritu Singh,Ritu123,ritu.singh@company.com,,,Business Analyst,,15,10,58000,Active,12,8
+111,Arjun Desai,Arjun123,arjun.desai@company.com,,,Software Engineer,,10,7,55000,Probation,9,7
+112,Kavya Joshi,Kavya123,kavya.joshi@company.com,,,Content Writer,,12,8,36000,Active,6,5
+113,Rajat Kapoor,Rajat123,rajat.kapoor@company.com,,,Finance Manager,,20,12,85000,Active,13,9
+114,Ishita Malhotra,Ishita123,ishita.malhotra@company.com,,,UI/UX Designer,,12,8,47000,Active,7,6
+115,Dev Sharma,Dev123,dev.sharma@company.com,,,Data Scientist,,15,10,70000,Active,12,9
+116,Meera Pillai,Meera123,meera.pillai@company.com,,,HR Executive,,15,10,43000,Active,11,8
+117,Aditya Khanna,Aditya123,aditya.khanna@company.com,,,Software Tester,,12,8,46000,Active,8,6
+118,Sanjana Rao,Sanjana123,sanjana.rao@company.com,,,Sales Manager,,20,12,65000,Active,14,10
+119,Nikhil Jain,Nikhil123,nikhil.jain@company.com,,,Network Engineer,,12,8,52000,Active,9,7
+120,Prakruti,Prakruti123,prakruti@company.com,,,Software Engineer,,15,10,60000,Active,13,9
